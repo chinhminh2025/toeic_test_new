@@ -1,1 +1,4 @@
-# toeic_test_new
+# Install npm
+npm install
+# Run
+npm start
