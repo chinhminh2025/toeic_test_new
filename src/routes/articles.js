@@ -3,8 +3,9 @@ const express = require("express");
 const Article = require("../models/article.js");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("In articles");
+router.get("/", async (req, res) => {
+  const articles = await Article.find().sort({createdAt: "desc",});
+  res.render("articles/index", { articles: articles });
 });
 
 router.get("/new", (req, res) => {

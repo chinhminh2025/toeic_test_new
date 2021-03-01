@@ -1,25 +1,58 @@
 {
-  "name": "TOEIC_TEST_NEW",
+  "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "npx nodemon server.js"
+    "beautiful": "lint-staged",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sondnpt00343/nodejs_blog.git"
+  },
+  "keywords": [
+    "f8",
+    "blog",
+    "f8",
+    "nodejs",
+    "nodejs"
+  ],
+  "author": "sondn",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sondnpt00343/nodejs_blog/issues"
+  },
+  "homepage": "https://github.com/sondnpt00343/nodejs_blog#readme",
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "dompurify": "^2.2.6",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
     "jsdom": "^16.4.0",
     "marked": "^2.0.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.18",
+    "mongoose-delete": "^0.5.2",
+    "mongoose-slug-generator": "^1.0.4",
     "slugify": "^1.4.7"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "morgan": "^1.10.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
   }
 }
