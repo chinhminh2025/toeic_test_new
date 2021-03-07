@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Blog</title>
+  </head>
+  <body>    
+    <%- include ('../common/header.ejs') %>
+    <div class="container">     
+      <h3 class="mb-4">Blog Manage</h3>
+      <a href="/manage_blogs/new" class="btn btn-success">New Blog</a>
+
+      <% manage_blogs.forEach(manage_blog => { %>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h4 class="card-title"><%= manage_blog.title %></h4>
+          <div class="card-subtitle text-muted mb-2">
+            <%= manage_blog.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2">
+              <%= manage_blog.description %>
+          </div>
+          <a href="/manage_blogs/<%= manage_blog.slug %>" class="btn btn-primary">Read More</a>
+          <a href="/manage_blogs/edit/<%= manage_blog.id %>" class="btn btn-info">Edit</a>
+          <form action="/manage_blogs/<%= manage_blog.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

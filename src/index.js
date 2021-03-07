@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Article = require("./models/article");
-const articleRouter = require("./routes/articles.js");
+// const Article = require("./models/article");
+// const articleRouter = require("./routes/articles.js");
 const methodOverride = require('method-override') ;
 const route = require('./routes');
 const path = require ('path');
@@ -22,4 +22,4 @@ app.use(methodOverride('_method'));
 
 route(app);
 
-app.listen(5000, ()=> { console.log(`Server is running on http://localhost:5000`)});
+app.listen(3000, () => { console.log(`Server is running on http://localhost:3000`)});
